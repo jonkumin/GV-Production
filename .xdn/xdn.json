@@ -1,0 +1,1552 @@
+{
+  "version": "2.9.0",
+  "backends": {
+    "origin": {
+      "domainOrIp": "store-xv4vhtq.mybigcommerce.com",
+      "hostHeader": "www.giantvapes.com"
+    }
+  },
+  "destinations": {
+    "default": {
+      "index": 0,
+      "routes": [
+        {
+          "path": "/__xdn__/cache-manifest.js",
+          "routeJson": "{\"path\":\"/__xdn__/cache-manifest.js\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/__xdn__/cache-manifest\\.js[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 31536000
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "__js__"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, max-age=3600"
+              },
+              {
+                "action": "set-header",
+                "name": "content-type",
+                "value": "text/javascript"
+              },
+              {
+                "action": "set-header",
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        {
+          "path": "/service-worker.js",
+          "routeJson": "{\"path\":\"/service-worker.js\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/service-worker\\.js[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 31536000
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "__static__",
+            "fsPath": "/dist/service-worker.js"
+          },
+          "transform": {
+            "request": [
+              {
+                "action": "update-path",
+                "valueRegex": "(?i)^/service-worker\\.js[/#\\?]?$",
+                "replaceValue": "/dist/service-worker.js"
+              }
+            ],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, no-store, no-cache"
+              }
+            ]
+          }
+        },
+        {
+          "path": "/cart.php",
+          "routeJson": "{\"method\":\"get\",\"path\":\"/cart.php\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/cart\\.php[/#\\?]?$"
+            },
+            {
+              "value": "${method}",
+              "matchRegex": "(?i)^get$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/customer",
+          "routeJson": "{\"path\":\"/customer\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/customer[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/wishlist:splat*",
+          "routeJson": "{\"path\":\"/wishlist:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/wishlist([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/giants-club:splat*",
+          "routeJson": "{\"path\":\"/giants-club:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/giants-club([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/brands/:splat*",
+          "routeJson": "{\"path\":\"/brands/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/brands(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/customer:splat*",
+          "routeJson": "{\"path\":\"/customer:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/customer([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/sitemap.xml",
+          "routeJson": "{\"path\":\"/sitemap.xml\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/sitemap\\.xml[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/sitemap.xml:splat*",
+          "routeJson": "{\"path\":\"/sitemap.xml:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/sitemap\\.xml([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/robots.txt",
+          "routeJson": "{\"path\":\"/robots.txt\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/robots\\.txt[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/robots.txt:splat*",
+          "routeJson": "{\"path\":\"/robots.txt:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/robots\\.txt([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/customer-support:splat*",
+          "routeJson": "{\"path\":\"/customer-support:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/customer-support([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/account.php",
+          "routeJson": "{\"path\":\"/account.php\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/account\\.php[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/account.php:splat*",
+          "routeJson": "{\"path\":\"/account.php:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/account\\.php([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/order.html",
+          "routeJson": "{\"path\":\"/order.html\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/order\\.html[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/order.html:splat*",
+          "routeJson": "{\"path\":\"/order.html:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/order\\.html([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/age-verification",
+          "routeJson": "{\"path\":\"/age-verification\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/age-verification[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/age-verification:splat*",
+          "routeJson": "{\"path\":\"/age-verification:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/age-verification([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/manual-verification",
+          "routeJson": "{\"path\":\"/manual-verification\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/manual-verification[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/manage/:splat*",
+          "routeJson": "{\"path\":\"/manage/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/manage(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/admin",
+          "routeJson": "{\"path\":\"/admin\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/admin[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/admin/:splat*",
+          "routeJson": "{\"path\":\"/admin/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/admin(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/oauth2",
+          "routeJson": "{\"path\":\"/oauth2\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/oauth2[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/subscribe",
+          "routeJson": "{\"path\":\"/subscribe\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/subscribe[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/subscribe:splat*",
+          "routeJson": "{\"path\":\"/subscribe:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/subscribe([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/brands:splat*",
+          "routeJson": "{\"path\":\"/brands:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/brands([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/oauth2/:splat*",
+          "routeJson": "{\"path\":\"/oauth2/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/oauth2(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/login-as-customer",
+          "routeJson": "{\"path\":\"/login-as-customer\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/login-as-customer[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/login-as-customer:splat*",
+          "routeJson": "{\"path\":\"/login-as-customer:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/login-as-customer([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/manual-verification:splat*",
+          "routeJson": "{\"path\":\"/manual-verification:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/manual-verification([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/order-verification",
+          "routeJson": "{\"path\":\"/order-verification\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/order-verification[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/order-verification:splat*",
+          "routeJson": "{\"path\":\"/order-verification:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/order-verification([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/vendors",
+          "routeJson": "{\"path\":\"/vendors\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/vendors[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/vendors:splat*",
+          "routeJson": "{\"path\":\"/vendors:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/vendors([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/contact-us",
+          "routeJson": "{\"path\":\"/contact-us\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/contact-us[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/contact-us:splat*",
+          "routeJson": "{\"path\":\"/contact-us:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/contact-us([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/finishorder.php",
+          "routeJson": "{\"path\":\"/finishorder.php\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/finishorder\\.php[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/finishorder.php:splat*",
+          "routeJson": "{\"path\":\"/finishorder.php:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/finishorder\\.php([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/api/storefront/:splat*",
+          "routeJson": "{\"method\":\"get\",\"path\":\"/api/storefront/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/api/storefront(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            },
+            {
+              "value": "${method}",
+              "matchRegex": "(?i)^get$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/login.php",
+          "routeJson": "{\"method\":\"get\",\"path\":\"/login.php\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/login\\.php[/#\\?]?$"
+            },
+            {
+              "value": "${method}",
+              "matchRegex": "(?i)^get$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/login.php:splat*",
+          "routeJson": "{\"path\":\"/login.php:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/login\\.php([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/checkout.php",
+          "routeJson": "{\"method\":\"get\",\"path\":\"/checkout.php\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/checkout\\.php[/#\\?]?$"
+            },
+            {
+              "value": "${method}",
+              "matchRegex": "(?i)^get$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/checkout.php:splat*",
+          "routeJson": "{\"path\":\"/checkout.php:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/checkout\\.php([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/verification-in-progress",
+          "routeJson": "{\"path\":\"/verification-in-progress\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/verification-in-progress[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/verification-in-progress:splat*",
+          "routeJson": "{\"path\":\"/verification-in-progress:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/verification-in-progress([^/#\\?]+?)*[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "disabled": true
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "path": "/main.js",
+          "routeJson": "{\"path\":\"/main.js\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/main\\.js[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 1314000
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "__static__",
+            "fsPath": "/dist/browser.js"
+          },
+          "transform": {
+            "request": [
+              {
+                "action": "update-path",
+                "valueRegex": "(?i)^/main\\.js[/#\\?]?$",
+                "replaceValue": "/dist/browser.js"
+              }
+            ],
+            "upstreamResponse": [
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, no-store, no-cache"
+              }
+            ]
+          }
+        },
+        {
+          "path": "/",
+          "routeJson": "{\"path\":\"/\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^/[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 86400,
+            "staleWhileRevalidateSeconds": 3600
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, no-store, no-cache"
+              },
+              {
+                "action": "set-header",
+                "name": "x-sw-cache-control",
+                "value": "max-age=86400"
+              },
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "update-header",
+                "name": "location",
+                "valueRegex": "https:\\/\\/www.giantvapes.com",
+                "replaceValue": "/"
+              }
+            ]
+          }
+        },
+        {
+          "path": "cdn11.bigcommerce.com/:splat*",
+          "routeJson": "{\"path\":\"cdn11.bigcommerce.com/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^cdn11\\.bigcommerce\\.com(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 86400,
+            "staleWhileRevalidateSeconds": 3600
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, no-store, no-cache"
+              },
+              {
+                "action": "set-header",
+                "name": "x-sw-cache-control",
+                "value": "max-age=86400"
+              },
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "update-header",
+                "name": "location",
+                "valueRegex": "https:\\/\\/www.giantvapes.com",
+                "replaceValue": "/"
+              }
+            ]
+          }
+        },
+        {
+          "path": "/:splat*",
+          "routeJson": "{\"path\":\"/:splat*\"}",
+          "match": [
+            {
+              "value": "${path}",
+              "matchRegex": "(?i)^(?:/((?:[^/#\\?]+?)(?:/(?:[^/#\\?]+?))*))?[/#\\?]?$"
+            }
+          ],
+          "cache": {
+            "maxAgeSeconds": 86400,
+            "staleWhileRevalidateSeconds": 3600
+          },
+          "route": {
+            "action": "proxy",
+            "backend": "origin"
+          },
+          "transform": {
+            "request": [],
+            "upstreamResponse": [
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "set-header",
+                "name": "vary",
+                "value": "accept-encoding"
+              }
+            ],
+            "response": [
+              {
+                "action": "set-header",
+                "name": "cache-control",
+                "value": "private, no-store, no-cache"
+              },
+              {
+                "action": "set-header",
+                "name": "x-sw-cache-control",
+                "value": "max-age=86400"
+              },
+              {
+                "action": "remove-header",
+                "name": "set-cookie"
+              },
+              {
+                "action": "update-header",
+                "name": "location",
+                "valueRegex": "https:\\/\\/www.giantvapes.com",
+                "replaceValue": "/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
