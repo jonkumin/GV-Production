@@ -24,6 +24,15 @@ const routesToNotCache = [
   `/vendors`,
   `/verification-in-progress`,
   `/wishlist`,
+  '/smok-pozz-x-pods',
+  '/smok-alike-pods',
+  '/sicboy',
+  '/medhaven-masks',
+  '/king-s-crown',
+  '/giantvapes.com/focus-goji-cacao-cbd-tincture',
+  '/geekvape-aeigs-hero',
+  '/charlie-s-chalk-dust',
+  '/big-willie-s',
 ];
 
 export default routesToNotCache;
