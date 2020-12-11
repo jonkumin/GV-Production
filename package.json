@@ -1,12 +1,27 @@
 {
+  "scripts": {
+    "xdn": "xdn",
+    "xdn:start": "xdn run",
+    "xdn:build": "xdn build",
+    "xdn:deploy": "xdn deploy",
+    "start": "concurrently \"webpack --watch\" \"xdn run\"",
+    "build": "webpack --progress && xdn build",
+    "prod": "xdn run --production",
+    "deploy": "xdn deploy --team=giantx --environment=production",
+    "xdn:update": "npm i --save-dev @xdn/cli@latest @xdn/core@latest @xdn/prefetch@latest",
+    "xdn:link": "yalc add @xdn/core @xdn/prefetch @xdn/cli",
+    "hh:off": "sudo npx hostile remove giantvapes.com && sudo npx hostile remove www.giantvapes.com",
+    "hh:prod-xdn:on": "sudo npx hostile set 199.232.17.79 giantvapes.com && sudo npx hostile set 199.232.17.79 www.giantvapes.com"
+  },
   "name": "gv-production",
   "devDependencies": {
     "@types/jquery": "^3.5.1",
     "@types/node": "^13.13.2",
-    "@xdn/cli": "^2.9.0",
-    "@xdn/core": "^2.9.0",
-    "@xdn/prefetch": "^2.9.0",
+    "@xdn/cli": "^2.30.1",
+    "@xdn/core": "^2.30.1",
+    "@xdn/prefetch": "^2.30.1",
     "concurrently": "^5.2.0",
+    "hostile": "^1.3.3",
     "prettier": "^2.0.5",
     "serverless": "^1.64.0",
     "serverless-dotenv-plugin": "^2.3.2",
@@ -16,15 +31,6 @@
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
-  },
-  "scripts": {
-    "start": "concurrently \"webpack --watch\" \"xdn run\"",
-    "build": "webpack --progress && xdn build",
-    "prod": "xdn run --production",
-    "deploy": "xdn deploy",
-    "xdn": "xdn",
-    "xdn:update": "npm i --save-dev @xdn/cli@latest @xdn/core@latest @xdn/prefetch@latest",
-    "xdn:link": "yalc add @xdn/core @xdn/prefetch @xdn/cli"
   },
   "dependencies": {
     "jquery": "^3.5.1"
