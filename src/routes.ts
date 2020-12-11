@@ -12,6 +12,10 @@ const isRouteForbiddenToCache = (route: string): boolean => {
 const routesToCacheFiltered = routesToCache.filter(route => !isRouteForbiddenToCache(route));
 
 const router = new Router();
+// Rewrite apex to www
+router.match({ headers: { host: /^(?!www\.).*$/ } }, ({ redirect }) => {
+	redirect('https://www.giantvapes.com${url}')
+})
 
 // xdn files
 router.match('/service-worker.js', ({ serveStatic, cache }) => {
