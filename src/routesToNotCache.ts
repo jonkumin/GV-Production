@@ -30,9 +30,10 @@ const routesToNotCache = [
   '/medhaven-masks',
   '/king-s-crown',
   '/giantvapes.com/focus-goji-cacao-cbd-tincture',
-  '/geekvape-aeigs-hero',
+  '/geekvape-aegis-hero',
   '/charlie-s-chalk-dust',
   '/big-willie-s',
+  '/your-rewards',
 ];
 
 export default routesToNotCache;
