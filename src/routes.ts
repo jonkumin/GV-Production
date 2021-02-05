@@ -33,6 +33,9 @@ routesToCacheFiltered.forEach(route => {
 	router.get(route, shoppingFlowRouteHandler);
 })
 
+// static: /content/images, /content/js, etc.
+router.get('/content:path*', shoppingFlowRouteHandler);
+
 // fallback: perfect proxy
 router.fallback(({ proxy }) => {
 	proxy('origin');
