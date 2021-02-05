@@ -36,6 +36,13 @@ routesToCacheFiltered.forEach(route => {
 // static: /content/images, /content/js, etc.
 router.get('/content:path*', shoppingFlowRouteHandler);
 
+// no-cache routes
+routesToNotCache.forEach(route => {
+	router.match(`${route}:splat*`, ({ proxy }) => {
+		proxy('origin')
+	})
+})
+
 // fallback: perfect proxy
 router.fallback(({ proxy }) => {
 	proxy('origin');
