@@ -4,6 +4,7 @@ const routesToNotCache = [
   `/admin`,
   `/age-verification`,
   `/api/storefront`,
+  '/remote/v1',
   `/cart.php`,
   `/checkout.php`,
   `/contact-us`,

@@ -16,6 +16,8 @@ const splat = ':splat*';
 // routes you see commented out came from original sitemap,
 // they're combined into one but listed just for visibility
 const routesToCache = [
+  `/new-arrivals${splat}`,
+
   // `/`,
 
   `/18650-battery-case${splat}`,
